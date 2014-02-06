@@ -7,11 +7,11 @@ var dest = __dirname + '/node_modules/requireFrom/index.js';
 
 
 
-// We'll need requireFrom in the node_modules directory
+// We'll need requirefrom in the node_modules directory
 copyFile( src, dest
 	, function(err){
 		if(err){ 
-			console.log('Could not copy requireFrom into the test directory.');
+			console.log('Could not copy requirefrom into the test directory.');
 			console.log(err);
 		}
 		else{
@@ -28,7 +28,7 @@ copyFile( src, dest
 
 function runTest(){
 	var
-	    requireFrom = require('requireFrom')
+	    requireFrom = require('requirefrom')
 	  , views = requireFrom('lib/components/framework/views/')
 	  , models = requireFrom('lib/components/framework/models/')
 	  , utility = requireFrom('lib/utility/')

@@ -4,12 +4,12 @@ Require from a directory relative to node_modules, flattening your require paths
 
 Example:
 	Given project structure:
-		node_modules/requireFrom/
+		node_modules/requirefrom/
 		lib/some/complex/dir/module/module.js
 		lib/otherModule/index.js
 
 	The file module.js:
-		var lib = require('requireFrom')('lib');
+		var lib = require('requirefrom')('lib');
  		var otherModule = lib('otherModule');
 
 	Would be equivalent to:

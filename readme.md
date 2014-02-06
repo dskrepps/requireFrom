@@ -6,7 +6,7 @@ Require from a directory relative to node_modules, flattening your require paths
 
 Simple usage anywhere in your node app:
 ````js
-    var lib = require('requireFrom')('lib');
+    var lib = require('requirefrom')('lib');
     var myModule = lib('myModule');
 ````
 
@@ -30,7 +30,7 @@ For more complex usage, let's assume this example directory structure:
 Any file in this project could then include these files with the following code:
 ````js
 var
-    requireFrom = require('requireFrom')
+    requireFrom = require('requirefrom')
   , views = requireFrom('lib/components/framework/views/')
   , models = requireFrom('lib/components/framework/models/')
   , utility = requireFrom('lib/utility/')
@@ -62,4 +62,4 @@ There hasn't been a conlusive method to prevent relative path complexity. You ca
 
 ## Installation
 
-Install using npm. Add "requireFrom" to your dependencies in package.json before running `npm install`, or do that automatically with `npm install --save requireFrom`.
+Install using npm. Add "requirefrom" to your dependencies in package.json before running `npm install`, or do that automatically with `npm install --save requirefrom`.
