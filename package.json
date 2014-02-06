@@ -1,0 +1,30 @@
+{
+  "name": "requireFrom",
+  "version": "0.1.0",
+  "description": "Require from a directory relative to node_modules, flattening your require paths.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DSKrepps/requireFrom.git"
+  },
+  "keywords": [
+    "requireFrom",
+    "require",
+    "relative",
+    "path",
+    "module",
+    "dependency"
+  ],
+  "author": "Dylan Krepps <DSKrepps+requireFrom@gmail.com> (https://github.com/DSKrepps)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DSKrepps/requireFrom/issues"
+  },
+  "homepage": "https://github.com/DSKrepps/requireFrom"
+}
