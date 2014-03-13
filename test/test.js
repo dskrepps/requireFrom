@@ -63,6 +63,8 @@ function runTest(){
 	userModel = rf.models('user');
 	normalizeUser = rf.utility('normalize/user.js');
 
+	result = JSON.stringify([loginForm, signupForm, userModel, normalizeUser]);
+
 	if(result === shouldBe)
 		console.log('Test 2 Passed');
 	else
