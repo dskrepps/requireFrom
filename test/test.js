@@ -3,7 +3,7 @@
 var fs = require('fs');
 
 var src  = __dirname + '/../index.js'
-var dest = __dirname + '/node_modules/requireFrom/index.js';
+var dest = __dirname + '/node_modules/requirefrom/index.js';
 
 
 
