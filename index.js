@@ -17,11 +17,19 @@ Example:
 */
 
 var path = require('path');
+var pkg = require(__dirname + '/../../package.json');
+var dirs = pkg.requireFrom;
 
-module.exports = function( fromPath ){
+var requireFrom = module.exports = function( fromPath ){
 	return function( modulePath ){
 		return require( path.normalize(
 			__dirname + '/../../' + fromPath + '/' + modulePath
 			) );
+	}
+}
+
+if(dirs){
+	for(dir in dirs){
+		module.exports[dir] = requireFrom(dirs[dir]);
 	}
 }
