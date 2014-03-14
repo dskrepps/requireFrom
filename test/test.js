@@ -58,6 +58,9 @@ function runTest(){
 		);
 
 
+
+	rf.readPkg();
+
 	loginForm = rf.views('login.js');
 	signupForm = rf.views('signup.js');
 	userModel = rf.models('user');
