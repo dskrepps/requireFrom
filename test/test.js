@@ -28,10 +28,10 @@ copyFile( src, dest
 
 function runTest(){
 	var
-	    requireFrom = require('requirefrom')
-	  , views = requireFrom('lib/components/framework/views/')
-	  , models = requireFrom('lib/components/framework/models/')
-	  , utility = requireFrom('lib/utility/')
+	    rf = require('requirefrom')
+	  , views = rf('lib/components/framework/views/')
+	  , models = rf('lib/components/framework/models/')
+	  , utility = rf('lib/utility/')
 
 	  , loginForm = views('login.js')
 	  , signupForm = views('signup.js')
@@ -50,10 +50,29 @@ function runTest(){
 
 
 	if(result === shouldBe)
-		console.log('Test Passed');
+		console.log('Test 1 Passed');
 	else
 		console.log(
-			'Test Failed\n\n\tResult: \n\t\t%s\n\n\tShould have been: \n\t\t%s'
+			'Test 1 Failed\n\n\tResult: \n\t\t%s\n\n\tShould have been: \n\t\t%s'
+			, result, shouldBe
+		);
+
+
+
+	rf.readPkg();
+
+	loginForm = rf.views('login.js');
+	signupForm = rf.views('signup.js');
+	userModel = rf.models('user');
+	normalizeUser = rf.utility('normalize/user.js');
+
+	result = JSON.stringify([loginForm, signupForm, userModel, normalizeUser]);
+
+	if(result === shouldBe)
+		console.log('Test 2 Passed');
+	else
+		console.log(
+			'Test 2 Failed\n\n\tResult: \n\t\t%s\n\n\tShould have been: \n\t\t%s'
 			, result, shouldBe
 		);
 

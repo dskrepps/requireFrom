@@ -18,10 +18,35 @@ Example:
 
 var path = require('path');
 
-module.exports = function( fromPath ){
-	return function( modulePath ){
+
+var requireFrom = module.exports = function requireFrom( fromPath ){
+	return function requireModule( modulePath ){
 		return require( path.normalize(
 			__dirname + '/../../' + fromPath + '/' + modulePath
-			) );
+		) );
 	}
 }
+
+
+// Extra feature. Add requireFrom: {"lib": "some/lib/dir/"}
+// in package.json and then:
+// var rf = require('requirefrom').readPkg();
+// var module = rf.lib('myModule.js');
+requireFrom.readPkg = function( prop ){
+	var pkg, dirs, dir;
+
+	prop = prop || 'requireFrom';
+
+	try{ pkg = require(__dirname + '/../../package.json'); }
+	catch(e){ throw new Error('requireFrom couldn\'t find package.json'); }
+
+	dirs = pkg[prop];
+
+	if(dirs){
+		for(dir in dirs){
+			requireFrom[dir] = requireFrom(dirs[dir]);
+		}
+	}
+
+	return requireFrom;
+};
