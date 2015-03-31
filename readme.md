@@ -16,7 +16,7 @@ For more complex usage, let's assume this example directory structure:
     lib/
       components/
         framework/
-          veiws/
+          views/
             login.js
             signup.js
           models/
