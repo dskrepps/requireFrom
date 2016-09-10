@@ -2,12 +2,14 @@
 
 Require from a directory relative to node_modules, flattening your require paths. Using requireFrom you won't have to manage complex relative paths between each component of your node app.
 
+Alternatively check out [wavy](https://www.npmjs.com/package/wavy) or [link-local](https://www.npmjs.com/package/linklocal) if symlinks might be a better solution for your project.
+
 ## Code Example
 
 Simple usage anywhere in your node app:
 ````js
-    var lib = require('requirefrom')('lib');
-    var myModule = lib('myModule');
+    let lib = require('requirefrom')('lib');
+    let myModule = lib('myModule');
 ````
 
 For more complex usage, let's assume this example directory structure:
@@ -29,29 +31,27 @@ For more complex usage, let's assume this example directory structure:
 
 Any file in this project could then include these files with the following code:
 ````js
-var
-    requireFrom = require('requirefrom')
-  , views = requireFrom('lib/components/framework/views/')
-  , models = requireFrom('lib/components/framework/models/')
-  , utility = requireFrom('lib/utility/')
+let requireFrom = require('requirefrom');
+let views = requireFrom('lib/components/framework/views/');
+let models = requireFrom('lib/components/framework/models/');
+let utility = requireFrom('lib/utility/');
 
-  , loginForm = views('login.js')
-  , signupForm = views('signup.js')
+let loginForm = views('login.js');
+let signupForm = views('signup.js');
 
-  , userModel = models('user')
+let userModel = models('user');
 
-  , normalizeUser = utility('normalize/user.js')
+let normalizeUser = utility('normalize/user.js');
 ````
 
 Without requireFrom, each file would need to maintain paths relative each other file, for example:
 ````js
-var
-    loginForm = require('../../framework/views/login.js')
-  , signupForm = require('../../framework/views/signup.js')
+let loginForm = require('../../framework/views/login.js');
+let signupForm = require('../../framework/views/signup.js');
 
-  , userModel = require('../../framework/models/user')
+let userModel = require('../../framework/models/user');
 
-  , normalizeUser = require('../../../utlity/normalize/user.js')
+let normalizeUser = require('../../../utlity/normalize/user.js');
 ````
 
 
